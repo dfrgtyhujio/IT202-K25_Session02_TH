@@ -5,11 +5,11 @@ create table book (
 	book_id char(5) primary key,
     book_name varchar(200) not null,
     quantity  int check(quantity >= 0),
-    rent decimal(10,2) default(5000)
+    rent decimal(10,2) default 5000
 );
 
 alter table book
-add column entry_date date 
+add column entry_date timestamp default current_timestamp
 after rent;
 
 create table borrow_books (
